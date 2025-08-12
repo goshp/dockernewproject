@@ -2,5 +2,5 @@
 FROM ubuntu as registration
 RUN apt-get update -y && \
     apt-get install -y apache2
-COPY registration.html /var/www/html/
+COPY registration.html /var/www/html/index.html
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
