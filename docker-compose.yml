@@ -1,48 +1,21 @@
 version: '3.8'
-
 services:
   login:
-    image: gosikhena/login:latest
-    ports:
-      - target: 80
-        published: 81
-        protocol: tcp
-        mode: host
-    deploy:
+      image: login-app:latest
+      ports:
+        - "82:80"
+      deploy:
       replicas: 3
-      placement:
-        constraints: [node.role == manager]
-    networks:
-      - my_network
 
   registration:
-    image: gosikhena/registration:latest
-    ports:
-      - target: 80
-        published: 82
-        protocol: tcp
-        mode: host
-    deploy:
+      image: registration-app:latest
+      ports:
+        - "83:80"
+      deploy:
       replicas: 3
-      placement:
-        constraints: [node.role == manager]
-    networks:
-      - my_network
-
   resume:
-    image: gosikhena/resume:latest
-    ports:
-      - target: 80
-        published: 83
-        protocol: tcp
-        mode: host
-    deploy:
+      image: landing-app:latest  # Change from 'landing-page' to 'landing-app'
+      ports:
+        - "81:80"
+      deploy:
       replicas: 3
-      placement:
-        constraints: [node.role == manager]
-    networks:
-      - my_network
-
-networks:
-  my_network:
-    driver: overlay
