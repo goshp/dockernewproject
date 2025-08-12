@@ -13,8 +13,9 @@ services:
         - "83:80"
       deploy:
       replicas: 3
+      
   resume:
-      image: landing-app:latest  # Change from 'landing-page' to 'landing-app'
+      image: resume-app:latest  # Change from 'landing-page' to 'landing-app'
       ports:
         - "81:80"
       deploy:
