@@ -15,7 +15,7 @@ COPY login.html /var/www/html/index.html
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
 
 # Stage 3: Build the landing image
-FROM ubuntu as landing
+FROM ubuntu as resume
 RUN apt-get update -y && \
     apt-get install -y apache2 && \
     rm -rf /var/www/html/*
