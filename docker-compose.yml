@@ -3,20 +3,20 @@ services:
   login:
     image: login-app:latest
     ports:
-      - "82:80"
+      - "81:80"
     deploy:
       replicas: 3
 
   registration:
     image: registration-app:latest
     ports:
-      - "83:80"
+      - "82:80"
     deploy:
       replicas: 3
       
   resume:
     image: resume-app:latest
     ports:
-      - "81:80"
+      - "83:80"
     deploy:
       replicas: 3
