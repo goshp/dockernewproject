@@ -1,37 +1,48 @@
 version: '3.8'
+
 services:
   login:
     image: gosikhena/login:latest
-    deploy:
-      replicas: 3
-      placement:
-        constraints: [node.role == manager]
     ports:
       - target: 80
         published: 81
         protocol: tcp
         mode: host
-
-  registration:
-    image: gosikhena/registration:latest
     deploy:
       replicas: 3
       placement:
         constraints: [node.role == manager]
+    networks:
+      - my_network
+
+  registration:
+    image: gosikhena/registration:latest
     ports:
       - target: 80
         published: 82
         protocol: tcp
         mode: host
-
-  resume:
-    image: gosikhena/resume:latest
     deploy:
       replicas: 3
       placement:
         constraints: [node.role == manager]
+    networks:
+      - my_network
+
+  resume:
+    image: gosikhena/resume:latest
     ports:
       - target: 80
         published: 83
         protocol: tcp
         mode: host
+    deploy:
+      replicas: 3
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: overlay
