@@ -1,22 +1,22 @@
 version: '3.8'
 services:
   login:
-      image: login-app:latest
-      ports:
-        - "82:80"
-      deploy:
+    image: login-app:latest
+    ports:
+      - "82:80"
+    deploy:
       replicas: 3
 
   registration:
-      image: registration-app:latest
-      ports:
-        - "83:80"
-      deploy:
+    image: registration-app:latest
+    ports:
+      - "83:80"
+    deploy:
       replicas: 3
       
   resume:
-      image: resume-app:latest  # Change from 'landing-page' to 'landing-app'
-      ports:
-        - "81:80"
-      deploy:
+    image: resume-app:latest
+    ports:
+      - "81:80"
+    deploy:
       replicas: 3
