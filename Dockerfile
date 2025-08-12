@@ -13,5 +13,5 @@ CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
 # Stage 3: Build the landing image
 FROM ubuntu as landing
 RUN apt update -y && apt install apache2 -y
-COPY index.html /var/www/html/
+COPY resume.html /var/www/html/
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
