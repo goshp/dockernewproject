@@ -1,22 +1,29 @@
 version: '3.8'
+
 services:
   login:
-    image: login-app:latest
+    image: gosikhena/login-app:latest
     ports:
-      - "8081:80"
+      - "81:80"
     deploy:
       replicas: 3
+      restart_policy:
+        condition: on-failure
 
   registration:
-    image: registration-app:latest
+    image: gosikhena/registration-app:latest
     ports:
-      - "8082:80"
+      - "82:80"
     deploy:
       replicas: 3
-      
+      restart_policy:
+        condition: on-failure
+
   resume:
-    image: resume-app:latest
+    image: gosikhena/resume-app:latest
     ports:
-      - "8083:80"
+      - "83:80"
     deploy:
       replicas: 3
+      restart_policy:
+        condition: on-failure
